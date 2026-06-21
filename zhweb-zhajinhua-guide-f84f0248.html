@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炸金花 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #f7f3ed;
+            color: #3b3228;
+            line-height: 1.75;
+            padding: 0 1.2rem;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: #fefcf8;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: #ece4d8;
+            padding: 4rem 2.5rem 3.5rem;
+            text-align: center;
+            border-bottom: 1px solid #ddd3c4;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #4f3f2e;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #776a58;
+            border-top: 1px solid #c9bcaa;
+            border-bottom: 1px solid #c9bcaa;
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .hero .tagline {
+            margin-top: 1.8rem;
+            font-style: italic;
+            color: #7d6f5b;
+            font-size: 1.05rem;
+        }
+
+        /* 内容容器 */
+        .content {
+            padding: 2.8rem 3rem 2rem;
+        }
+
+        /* 背景说明 */
+        .context-box {
+            background: #f3ede6;
+            border-left: 4px solid #b9a48b;
+            padding: 1.6rem 2rem;
+            margin-bottom: 2.8rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .context-box p {
+            font-size: 1.05rem;
+        }
+
+        /* 三段自然介绍卡片 */
+        .three-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card-item {
+            border-bottom: 1px dashed #d9cfc0;
+            padding-bottom: 1.8rem;
+        }
+
+        .card-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .card-item h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #4d3e2e;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.3px;
+        }
+
+        .card-item p {
+            font-size: 1.05rem;
+            color: #4c4034;
+        }
+
+        .card-item .meta-note {
+            font-size: 0.9rem;
+            color: #8f7d68;
+            margin-top: 0.6rem;
+            border-left: 2px solid #d1c0ab;
+            padding-left: 1rem;
+        }
+
+        /* 提示框 */
+        .reminder-box {
+            background: #f5efe8;
+            border: 1px solid #dacfc1;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            margin: 2.5rem 0 2rem;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .reminder-box strong {
+            color: #5c4a37;
+        }
+
+        .reminder-box a {
+            color: #7c5f42;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cbb7a1;
+            font-weight: 400;
+        }
+
+        .reminder-box a:hover {
+            color: #4f3928;
+            text-decoration-color: #7c5f42;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin: 2rem 0 1.5rem;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e2d7ca;
+            padding: 0.9rem 0;
+        }
+
+        .faq-mini details:first-of-type {
+            border-top: 1px solid #e2d7ca;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #4f3f2e;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            font-size: 1.05rem;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #b09b84;
+        }
+
+        .faq-mini details p {
+            margin-top: 0.6rem;
+            padding-left: 0.8rem;
+            color: #5c4f3f;
+            font-size: 0.98rem;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            background: #e9e0d5;
+            padding: 1.8rem 2.5rem;
+            text-align: center;
+            font-size: 1rem;
+            color: #5f5140;
+            border-top: 1px solid #d1c3b2;
+        }
+
+        .footer-note a {
+            color: #6c553d;
+            text-decoration: none;
+            border-bottom: 1px solid #b6a289;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #6c553d;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero { padding: 3rem 1.5rem 2.5rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .content { padding: 2rem 1.5rem 1.5rem; }
+            .three-cards { gap: 1.8rem; }
+            .reminder-box { padding: 1.4rem 1.2rem; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0 0.6rem; }
+            .page { margin: 1.5rem auto; border-radius: 16px; }
+            .hero h1 { font-size: 2rem; }
+            .hero .sub { font-size: 0.95rem; }
+            .card-item h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <h1>炸金花</h1>
+        <div class="sub">简明指南 · 访问提醒</div>
+        <div class="tagline">一副牌里的分寸与闲趣</div>
+    </div>
+
+    <!-- 正文区 -->
+    <div class="content">
+        <!-- 背景说明 -->
+        <div class="context-box">
+            <p>炸金花，民间也叫“诈金花”或“赢三张”，是几代牌桌爱好者熟悉的比牌游戏。玩法简单，节奏明快，适合三五好友消磨时间。作为一项传统纸牌比大小的游戏，它讲究胆识与判断，趣味与分寸同样重要。本篇从入门常识和注意事项出发，提供一份温和的参考。</p>
+        </div>
+
+        <!-- 三段自然介绍：各带一个小标题 -->
+        <div class="three-cards">
+            <div class="card-item">
+                <h2>从牌型到心态</h2>
+                <p>豹子、同花顺、同花、顺子、对子……不同牌型有固定的大小顺序。初学者可以先熟悉这些基础牌力，再逐步体会“跟注”“加注”和“弃牌”的节奏。游戏的核心不只是牌的好坏，更在于对场上气氛的观察。很多时候，一副中等牌力靠沉稳也能走到最后。</p>
+                <div class="meta-note">── 牌型熟悉后，乐趣往往来自人和人的互动。</div>
+            </div>
+
+            <div class="card-item">
+                <h2>场景与选择</h2>
+                <p>线下牌局通常用一副牌，去掉大小王，每人发三张，依次行动。如今也有不少线上平台提供类似的游戏环境，方便随时体验。不论是朋友聚会还是独自摸索，都建议先选择低门槛的练习局，熟悉节奏后再逐步深入。</p>
+            </div>
+
+            <div class="card-item">
+                <h2>适度与提醒</h2>
+                <p>任何涉及判断与博弈的游戏，都值得保持轻松自在的态度。玩牌是娱乐，不是负担。设定好时间与节奏，愉快比输赢重要。如果你正在寻找一个稳定的线上环境，可以留意<a href="https://zhweb--zhajinhua.com">炸金花</a>——它提供了一种随时上手的可能，适合日常休闲。</p>
+                <div class="meta-note">── 常提醒自己：享受过程，量力而行。</div>
+            </div>
+        </div>
+
+        <!-- 提示框 / 引用块 -->
+        <div class="reminder-box">
+            <strong>📌 访问提醒</strong><br>
+            如果你打算在网上尝试<a href="https://zhweb--zhajinhua.com">炸金花</a>，建议先确认平台的日常规则与用户协议。不同地方对牌类游戏的界定不尽相同，请根据自身情况合理选择。同时注意保护个人信息，不随意透露账户细节。游戏是生活的点缀，安全与舒适永远在第一位。
+        </div>
+
+        <!-- FAQ 摘要（三个简短问答） -->
+        <div class="faq-mini">
+            <details>
+                <summary>炸金花最少需要几个人玩？</summary>
+                <p>通常两人及以上即可开局，二至六人比较常见。人数越多，牌局的变数与节奏也会有所变化。</p>
+            </details>
+            <details>
+                <summary>线上和线下玩起来差别大吗？</summary>
+                <p>核心规则一致，但线上少了面对面的表情与语气，更多依赖操作节奏。各有利弊，可以根据自己的习惯选择。</p>
+            </details>
+            <details>
+                <summary>新手有什么需要注意的地方？</summary>
+                <p>建议先花几分钟了解牌型大小，从低注码或练习局开始。保持平常心，不把输赢看得太重，才能真正体会牌局中的思考乐趣。</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 页尾 -->
+    <div class="footer-note">
+        无论新手老手，记得带着轻松的心情上桌<br>
+        关于 <a href="https://zhweb--zhajinhua.com">炸金花</a> · 简明介绍 · 祝你玩得愉快
+    </div>
+</div>
+</body>
+</html>
